@@ -20,3 +20,9 @@ dotenvy = "0.15"
 
 # エラーハンドリング
 anyhow = "1.0"
+
+[profile.release]
+opt-level = "z"     # サイズ最適化
+lto = true          # Link Time Optimization
+codegen-units = 1   # ビルド時間は長くなるがバイナリサイズ削減
+strip = true        # シンボル情報を削除

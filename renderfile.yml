@@ -1,0 +1,13 @@
+# renderfile.yaml
+services:
+  - type: web
+    name: notion-book-webhook
+    runtime: rust
+    buildCommand: cargo build --release
+    startCommand: ./target/release/notion-book-webhook
+    envVars:
+      - key: NOTION_TOKEN
+        sync: false
+      - key: NOTION_DATABASE_ID
+        sync: false
+    healthCheckPath: /health
